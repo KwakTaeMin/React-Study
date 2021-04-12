@@ -58,6 +58,15 @@ npx create-react-app {APP_NAME}
   - .env.development(개발용) / .env.production(상용) 파일로 관리할 수도 있다.
 
 
+## CSS 작성 방법 선택하기
+- 일반적인 css
+- css-module
+- Sass
+- css-in-js
 
+
+## SPA
+- pushState
+- react-route-dom
 
 
