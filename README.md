@@ -89,3 +89,15 @@ npx create-react-app {APP_NAME}
   - JSX 부분 UI 코드
   - 직관적으로 파악 (UI는 UI만 / 비즈니스 로직은 비즈니스 로직만)
 - 선언형 프로그래밍 
+- 추상화 단계가 높다 
+  - 비즈니스 로직 코드에 집중할 수 있다 
+
+## State
+  - React가 값이 변경되었다는 사실을 State로 알 수 있음 
+## Props 
+  - 속성 값
+  - 부모 Element가 전달해 주는 값
+  - React.memo({Element})를 이용하여 속성값이 변경될 때만 랜더링 
+  - Props는 부모 Element에서 준 값을 변경할 수 없다.
+  - Key가 있어야 VirtualDom에서 효율적으로 랜더링할 수 있다.
+  - React.Fragement 사용 시 자동으로 Key 
