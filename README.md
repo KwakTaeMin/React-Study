@@ -100,4 +100,12 @@ npx create-react-app {APP_NAME}
   - React.memo({Element})를 이용하여 속성값이 변경될 때만 랜더링 
   - Props는 부모 Element에서 준 값을 변경할 수 없다.
   - Key가 있어야 VirtualDom에서 효율적으로 랜더링할 수 있다.
-  - React.Fragement 사용 시 자동으로 Key 
+  - React.Fragement 사용 시 자동으로 Key 설정
+
+  ## Virtual Dom
+  - Virtual Dom에서 변경된 것을 찾고 실제 Dom에 반영한다.
+  - 랜더 단계 -> 커밋 단계 
+  - 렌더 단계에서는 변경된 요소를 찾는 과정 (가상돔을 이용)
+  - 커밋 단계는 파악된 변경 사항을 실제 돔에 반영하는 과정  
+  - 랜더링을 할 때 마다 가상돔을 생성 
+  - 이전 가상돔과 비교하여 변경된 요소를 찾음 
