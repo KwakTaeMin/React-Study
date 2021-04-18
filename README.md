@@ -34,9 +34,7 @@
 ```
 
 ## React 구축을 위한 도구 create-react-app 
-=======
 - 리액트에서는 JSX 문법을 사용하기 위해 바벨 사용
-```
  
 ## Create-React-App 사용하기
 ```
@@ -86,4 +84,8 @@ npx create-react-app {APP_NAME}
 - react-route-dom
 
 
->>>>>>> 505343cb1a190953a7f7268151c16c0d35cb15da
+## 리액트 특징
+- UI 코드와 비즈니스 로직 코드가 분리 
+  - JSX 부분 UI 코드
+  - 직관적으로 파악 (UI는 UI만 / 비즈니스 로직은 비즈니스 로직만)
+- 선언형 프로그래밍 

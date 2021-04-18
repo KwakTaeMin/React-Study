@@ -1,0 +1,47 @@
+<html>
+    <body>
+        <div class="todo">
+            <h3>할 일 목록</h3>
+            <ul class="list"></ul>
+            <input class="desc" type="text"/>
+            <button onclick="onAdd()">추가</button>
+            <button onclick="onSaveToServer()">서버에 저장</button>
+        </div>
+        <script>
+            const todoList = [];
+            function onAdd() {
+                const descElement = document.querySelector('.todo .desc');
+                const todo = { id : currentID++, desc : descElement.value };
+                todoList.push(todo);
+                const listElement = document.querySelector('.todo .list');
+                const todoElement = makeTodoElement(todo);
+                listElement.push(todoElement);
+            }
+            function makeTodoElement(todo) {
+                const todoElemenet = document.createElement('li');
+                const spanElemenet = document.createElement('span');
+                const buttonElement = document.createElement('button');
+                spanElemenet.innerHTML = todo.desc;
+                buttonElement.innerHTML = '삭제';
+                buttonElement.dataset.id = todo.id;
+                buttonElement.onclick = onDelete;
+                todoElemenet.appendChild(spanElemenet);
+                todoElemenet.appendChild(buttonElement);
+                return todoElemenet;
+            }
+            function onDelete(e) {
+                const id = Number(e.target.dataset.id);
+                const index = todoList.findIndex(item => item.id === id);
+                if(index >= 0) {
+                    todoList.splice(index,1);
+                    const listElement = document.querySelector('.todo .list');
+                    const todoElement = e.target.parrentNode;
+                    listElement.removeChild(todoElement);
+                }
+            }  
+            function onSaveToServer() {
+                // todoList를 Server로 전송한다 까지..
+            }
+        </script>
+    </body>
+</html>
