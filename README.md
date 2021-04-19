@@ -101,6 +101,7 @@ npx create-react-app {APP_NAME}
   - Props는 부모 Element에서 준 값을 변경할 수 없다.
   - Key가 있어야 VirtualDom에서 효율적으로 랜더링할 수 있다.
   - React.Fragement 사용 시 자동으로 Key 설정
+    -  <> , </> 으로 대처 가능
 
   ## Virtual Dom
   - Virtual Dom에서 변경된 것을 찾고 실제 Dom에 반영한다.
