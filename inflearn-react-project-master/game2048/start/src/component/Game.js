@@ -3,12 +3,13 @@ import times from 'lodash/times'
 import { MAX_POS } from '../constant';
 import { getInitialTileList } from '../util/tils';
 import useMoveTile from '../hook/useMoveTile';
+import Tile from './Tile';
 
 export default function Game() {
 
   const[tileList, setTileList] = useState(getInitialTileList);
   //up, down, left, right
-  useMoveTile();
+  useMoveTile({tileList, setTileList});
 
   return (
     <div className="game-container">
@@ -23,9 +24,7 @@ export default function Game() {
       </div>  
       <div className="tile-container">
         {tileList.map(item => (
-          <div className={`tile tile-${item.value} tile-position-${item.x}-${item.y} tile-new`}>
-              <div className="tile-inner">{item.value}</div>
-          </div>
+          <Tile key={item.id} {...item}/>
         ))}
       </div>
     </div>
