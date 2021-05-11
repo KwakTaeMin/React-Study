@@ -101,7 +101,6 @@ npx create-react-app {APP_NAME}
   - Props는 부모 Element에서 준 값을 변경할 수 없다.
   - Key가 있어야 VirtualDom에서 효율적으로 랜더링할 수 있다.
   - React.Fragement 사용 시 자동으로 Key 설정
-    -  <> , </> 으로 대처 가능
 
   ## Virtual Dom
   - Virtual Dom에서 변경된 것을 찾고 실제 Dom에 반영한다.
@@ -123,9 +122,8 @@ npx create-react-app {APP_NAME}
     - 이벤트 헨들러 등록
     - 의존성 배열 
       - 안에서 사용하는 지역 변수 , 지역 함수 등 값을 넣어줘야한다. 
-      - 의존성 배열이 있는 경우 , 해당 의존성 안에 값이 변경될 때에만 호출 , [userId]
-      - 의존성 배열이 없는 경우 매번 호출 , x
-      - 의존성 배열이 빈값인 경우 한 번만 호출, []
+      - 의존성 배열이 있는 경우 , 해당 의존성 안에 값이 변경될 때에만 호출
+      - 의존성 배열이 없는 경우 매번 호출 
       
   - React Hook을 사용 시 지켜야 할 규칙
     - 하나의 컴포넌트에서 훅을 호출 시 순서는 항상 같아야 한다.
@@ -133,3 +131,36 @@ npx create-react-app {APP_NAME}
       - for문 사용 X
       - function 사용 X
     - 훅은 함수형 컴포넌트 또는 커스텀 훅 안에서 호출되어야 한다.
+      - 
+
+  ## Context
+  - Props를 통해 계속 자식 컴포넌트에 강제하는 것을 Context로 방지
+  - Provider : Context 저장 
+    - 부모의 Provider Context가 변경되면 하위에 자식 Cunsumer들 전부 리로드
+  - Consumer : Context 로드
+    - 부모로 올라가면서 가장 가까운 Provider를 찾아 값을 꺼낸다.
+    - 부모를 찾지 못해도 초기화 값이 있다.
+
+### Context Example
+```javascript
+import {createContext} from 'react';
+const UserContext = createContext('Unknown');
+
+export default function App() {
+  return (
+    <UserContext.Providor value='mike'>
+        <Greeting>
+    <UserContext.Providor>
+  )
+}
+
+
+function Greeting() {
+  return (
+    <UserContext.Consumer>
+        {userName => {<p>'${username}'님 안녕하세요</p>}}
+    </UserContext.Consumer>
+  )
+}
+
+```
