@@ -141,7 +141,7 @@ npx create-react-app {APP_NAME}
     - 부모로 올라가면서 가장 가까운 Provider를 찾아 값을 꺼낸다.
     - 부모를 찾지 못해도 초기화 값이 있다.
 
-### Context Example
+### Context 기본 Example
 ```javascript
 import {createContext} from 'react';
 const UserContext = createContext('Unknown');
@@ -171,3 +171,34 @@ function Greeting() {
 }
 
 ```
+
+### Context 하위 컴포넌트에서 수정할 경우 
+```javascript
+const UserContext = createContext({username:'Unknown', helloCount: 0});// User 컨텍스트 초기화
+ // 이렇게 여러 데이터를 객체할 경우 useState보다는 useReducer가 좋다 (추후 강의 내용)
+const SetUserContext = createContext(() => {}); //Set User 컨텍스트 초기화
+
+export default function App() {
+  const [user, setUser] = useState({username : 'mike', helloCount : 0}); //초기값
+  return (
+    <SetUserContext.Providor value='setUser'>
+      <UserContext.Providor value='user'>
+          <Greeting>
+      <UserContext.Providor>
+    <SetUserContext.Providor>
+  )
+}
+
+function Greting() {
+  const setUser = useContext(SetUserContext);
+  const {username, helloCount} = useContext(UserContext); //Set 컨텍스트도 이런식으로 로드하여 사용한다.
+
+  return (
+    <button onClick={()=> setUser({username, helloCount : hellCount + 1})}>
+  );
+}
+
+
+```
+
+
