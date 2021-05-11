@@ -163,4 +163,11 @@ function Greeting() {
   )
 }
 
+// 훅을 이용해서 더 간편하게 사용한다.
+
+function Greeting() {
+  const username = useContext(UserContext);
+  return {userName => <p>'${username}'님 안녕하세요</p>;
+}
+
 ```
