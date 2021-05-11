@@ -201,4 +201,31 @@ function Greting() {
 
 ```
 
+## Ref
+- 실제 DOM 요소에 접근할 경우 
+- 예를 들어 
+  1. DOM요소에 focus를 주는 경우
+  2. DOM요소의 크기나 스크롤의 위치 알고 싶은 경우 
+- ref의 속성 값을 이용하여 자식요소의 접근 가능
+  - 자식 컴포넌트 및 DOM 요소
+  
+### Ref Example 
+```javascript
+import {useRef, useEffect} from 'react';
+export default function App() {
+  const inputRef = useRef();
+  useEffect(()=> {
+    inputRef.current.focus();
+  }, []);
+
+  return (
+    <div>
+      <input type="text" ref={inputRef}/>
+      <button>저장</button>
+    </div>
+  )
+}
+```
+### Ref Foward Eaxmple
+
 
