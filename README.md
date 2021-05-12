@@ -130,8 +130,7 @@ npx create-react-app {APP_NAME}
       - if 사용 X
       - for문 사용 X
       - function 사용 X
-    - 훅은 함수형 컴포넌트 또는 커스텀 훅 안에서 호출되어야 한다.
-      - 
+    - 훅은 함수형 컴포넌트 또는 커스텀 훅 안에서 호출되어야 한다.
 
   ## Context
   - Props를 통해 계속 자식 컴포넌트에 강제하는 것을 Context로 방지
